@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="loader.js"></script>
+    <script src="jquery-3.2.1.slim.min.js" ></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"  ></script>
+    <script src="chart.js"  ></script>
+    <script src="d3.v3.min.js"  ></script>
+    <link rel="stylesheet" href="style.css"> 
+    
+<title>APPControlAeropendulo</title>
+</head>
+<body>  
+    <canvas id="grafica"></canvas>
+    <div class="slidecontainer">
+        <input type="range" min="-80" max="80" value="0" class="slider" id="myRange">
+    <p id="RefText">Referencia:</p>
+    <p id="Grados">º</p>
+    <input type="text" id="refPrecisa" class="RefBox">
+    </div>
+    
+    <label for = "control_mode" class="label" id="ControlMode">Control Mode</label>
+    <select name="control_mode" class="select-css" id = select> 
+        <option disabled = "">Selecciona un control</option>
+        <option value = "EE">espacio de estados</option>
+        <option value = "Lead">red de adelanto</option>
+        <option value = "PID">PID</option>
+    </select>
+    <form action="/action_page.php">
+        <input type="text" id="K" name="K" class="textbox1" value="2.66 , 1.93"><br><br>
+        <input type="text" id="Nbar" name="Nbar" value="2.3" class="textbox2"><br><br>
+        <input type="button" value="Submit" id="enviar" class="botonSubmit">
+      </form>
+      <form action="/action_page.php">
+        <input type="text" id="Kp" name="Kp" class="textboxKp" value="7.0"><br><br>
+        <input type="text" id="Ki" name="Ki" value="0.0" class="textboxKi"><br><br>
+        <input type="text" name="Kd" id="Kd" value = "0.0" class="textboxKd">
+      </form>
+    
+    <p id="KpText" class="parrafoKp">Kp</p>   
+    <p id="KiText" class="parrafoKi">Ki</p>   
+    <p id="KdText" class="parrafoKd">Kd</p>   
+    <p id="Ktext" class="parrafoK">K= [K<sub>1</sub> , K<sub>2</sub>] </p>
+    <p id="Nbartext" class="parrafoNbar">Nbar</p>  
+    <button type="button" class="botonStart" id="StartButton">Start</button> 
+    <button type="button" class="botonStop" id="StopButton">Stop</button> 
+    <img src="pendulo.png" id="pendulo">
+    <script src="app.js"></script> 
+</body>
+</html>
